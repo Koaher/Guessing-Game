@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="Khoa Tran">
+<title>Contacts</title>
+
+<style>
+  body {
+    background-color: white;
+    font-family: Arial, sans-serif;
+    padding: 30px 15px;
+  }
+
+  h1 {
+    margin-top: 0;
+    color: darkblue;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 25px;
+  }
+
+  td {
+    padding: 12px;
+    font-size: 18px;
+    border-bottom: 1px solid whitesmoke;
+  }
+
+  .head td {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+  }
+
+  button {
+    width: 100%;
+    padding: 14px;
+    background-color: blue;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+</style>
+</head>
+
+<body>
+<!-- Create table for # and contact name -->
+<div class="card">
+  <h1>Contacts</h1>
+
+  <table>
+    <tr class="head">
+      <td>Slot #</td>
+      <td>Name</td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>Arnold</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Sly</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Dwayne</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Vin</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>JCVD</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Steven</td>
+    </tr>
+  </table>
+  
+<script>
+  // Create an array for names.
+  const names = ["Arnold", "Sly", "Dwayne", "Vin", "JCVD", "Steven"];
+</script>
+
+  <!-- Create button to ask user for input and search -->
+  <button onclick="
+    let searching = true;
+
+    // Loop until user cancels
+    while (searching == true) {
+
+      // Ask for a slot number and turn it into a number
+      let slot = parseInt(prompt('Enter a slot number (0 to 5):'));
+
+      // Use a while loop to look for the slot in the array
+      let i = 0;
+      while (i < names.length && i != slot) {
+        i = i + 1;
+      } 
+      if (i < names.length) {
+        alert('You selected ' + names[i] + '.');
+        searching = confirm('Would you like to look up another name?');
+      } else {
+        searching = confirm('That contact was not found. Would you like to try again?');
+      }
+    }
+  ">Find a contact by slot number</button>
+</div>
+
+
+
+</body>
+</html>
